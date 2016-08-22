@@ -26,7 +26,16 @@ public class PramatiCrawlerTest {
 		CrawlerService crawlerService = new CrawlerServiceImpl();
 		crawlerService.downloadEmails(URL, YEAR);
 		// assert statements
-		Assert.assertTrue("Downloaded Email Must have from field", crawlerService.downloadEmails(URL, YEAR).get(100).getFrom()!=null);
+		Assert.assertTrue("Downloaded Email Must have from field", !crawlerService.downloadEmails(URL, YEAR).get(100).getFrom().isEmpty());
+	}
+	
+	@Test
+	public void checkDownloadedEmailDate() {
+
+		CrawlerService crawlerService = new CrawlerServiceImpl();
+		crawlerService.downloadEmails(URL, YEAR);
+		// assert statements
+		Assert.assertTrue("Downloaded Email Must have from field", crawlerService.downloadEmails(URL, YEAR).get(100).getDate().contains(YEAR));
 	}
 
 }

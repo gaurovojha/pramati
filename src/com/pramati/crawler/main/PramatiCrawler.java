@@ -15,6 +15,7 @@ public class PramatiCrawler {
 
 		CrawlerService crawlerService = new CrawlerServiceImpl();
 		
+		//downloading email data
 		List<EmailData> emailData = crawlerService.downloadEmails(URL, YEAR);
 
 		//printing random email content.
